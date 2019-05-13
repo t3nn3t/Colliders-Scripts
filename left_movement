@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class left_p_movement : MonoBehaviour
+{
+    public float speed = 3f;
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("hit");
+            Destroy(gameObject);
+            p_movement.score++;
+        }
+    }
+}
