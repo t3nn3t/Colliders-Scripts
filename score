@@ -1,0 +1,14 @@
+
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Score : MonoBehaviour
+{
+
+    public Text score_t;
+    // Update is called once per frame
+    void Update()
+    {
+        score_t.text = ("Score : "+ p_movement.score.ToString());
+    }
+}
