@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class p_movement : MonoBehaviour
+{
+    //public float x_pos = 3f;
+    //public float y_pos = 3f;
+    public float speed = 3f;
+    public static float score = 0f;
+    
+    void Start()
+    {
+        //transform.position = new Vector2(x_pos, y_pos);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("hit");
+            Destroy(gameObject);
+            score++;
+        }
+    }
+}
